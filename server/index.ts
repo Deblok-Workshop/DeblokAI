@@ -16,8 +16,12 @@ if (!env.OPENAI_API_KEY) {console.error("error: No API key present! Exiting.");p
 
 server.post("/api/generate",({ set,body }) => {
     let b:any = body; // elysia bug
-
+    try {
     b = JSON.parse(b)
+    } catch {
+        set.status = 500;
+        return {"error":"Invalid JSON"}
+    }
     b.model = b.model ? b.model : "gpt-3.5-turbo";
     b.prompt = b.prompt ? b.prompt : "You are a helpful assistant called DeblokAI.";
     return ai.generate(b.model,b.messages,b.prompt)
