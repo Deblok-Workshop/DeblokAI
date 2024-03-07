@@ -1,6 +1,6 @@
 import OpenAI from "openai";
 const env = {
-    "OPENAI_API_KEY":process.env.API_KEY || "", 
+    "OPENAI_API_KEY":process.env.OPENAI_API_KEY || "", 
     "OPENAI_BASE_URL":process.env.OPENAI_BASE_URL || "https://api.openai.com/v1/"
 
 }
