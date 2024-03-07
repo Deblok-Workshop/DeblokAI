@@ -175,3 +175,6 @@ dist
 .DS_Store
 
 .env
+
+static/app.css
+/static/app.css
