@@ -13,10 +13,10 @@ async function generate(model:string,messages:Object,prompt:Object) {
  Object.assign({1: messages},msgs)
  let c = await openai.chat.completions.create({
     messages: msgs,
-    model: "gpt-3.5-turbo",
+    model: model || "gpt-3.5-turbo",
   });
   console.log(msgs)
-  return c.choices[0];
+  return c.choices;
 }
 
 
