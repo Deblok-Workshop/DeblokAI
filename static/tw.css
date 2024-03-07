@@ -55,3 +55,17 @@ body,html {width:100%; height:100%;}
 .chatbox-textarea-input {@apply px-3 py-1 bg-[rgb(7,7,17)]/80 hover:bg-[rgb(7,7,17)] focus:bg-[rgb(7,7,17)] ring-1 hover:ring-[3px] duration-200 ring-surface0/60 hover:ring-surface0/80 hover:shadow-inner active:shadow-inner focus:shadow-inner ;}
 chatbox {@apply fixed bottom-0 bg-[rgb(7,7,17)]/60 ring-2 ring-mantle  hover:bg-[rgb(7,7,17)]/80 backdrop-blur-lg duration-200 p-4 rounded-lg rounded-b-none w-[48%]}
 chat {@apply w-[56%] h-full bg-black/5 flex justify-center container mx-auto}
+button.send {@apply w-[10%] min-w-[88px] hover:bg-blue-950 bg-[rgb(7,7,17)]/80  ring-surface0/60  hover:ring-blue/60 hover:shadow-inner ring-1 border border-white/40 border-l-0 hover:ring-[3px] duration-300 flex mx-auto justify-center align-middle items-center rounded-r-md text-center h-[58px];
+}
+
+@keyframes sendIco_clickAnim {
+  from {position:relative; margin-left:25%;opacity:1;height:32px !important;}
+  25% {position:relative; margin-left:10px;opacity:1;margin-top:0px;height:32px !important;}
+  60% {position:relative; margin-left:120px;opacity:0;transform: rotateX(75deg);height:32px !important;}
+  81% {position:relative; margin-left:-100px;opacity:0;height:32px !important;}
+  90% {position:relative; margin-left:25%; opacity:1;height:32px !important;}
+  100% {position:relative; margin-left:25%; opacity:1;transform: rotateX(0deg);height:32px !important;}
+}
+
+button.send:hover svg {animation: 1.5s sendIco_clickAnim;overflow-x:hidden !important;height:32px !important;}
+button.send {overflow-x:hidden !important;}
