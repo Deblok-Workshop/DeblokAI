@@ -39,6 +39,7 @@
 }
 .letter {@apply m-0 hover:font-semibold duration-200 hover:p-0.5 hover:text-[26px] hover:[letter-spacing:-1px]; letter-spacing:0px;}
 .letter.ai {@apply font-normal hover:p-0;}
+.letter.ai:hover {@apply hover:text-[29px]}
 .h1-ai-group:hover .letter.ai {animation: 0.5s ai_letter_anim infinite alternate;}
 .h1-ai-group:hover .letter.ai:nth-of-type(2) {animation-delay: 0.05s;}
 .h1-ai-group {@apply hover:px-2 px-1 duration-200 hover:bg-surface1/30 bg-surface0/20 rounded-md}
@@ -49,3 +50,5 @@
 }
 
 vsep {border-right: 1px solid rgba(255,255,255,0.3); @apply inline;}
+
+body,html {width:100%; height:100%;}
