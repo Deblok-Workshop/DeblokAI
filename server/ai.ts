@@ -19,6 +19,7 @@ async function generate(model:string,messages:Object,prompt:Object) {
   return c.choices[0];
 }
 
+
 export default {
     generate:generate
     
