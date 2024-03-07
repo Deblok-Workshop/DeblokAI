@@ -7,15 +7,17 @@ server.use(staticPlugin({ prefix: "/", assets: "./static" })) // dont cd into /s
 server.listen(process.env.PORT || 3000);
 
 const env = {
-    "API_KEY":process.env.API_KEY, 
-    "OPENAI_BASE":process.env.OPENAI_BASE || undefined
+    "OPENAI_API_KEY":process.env.OPENAI_API_KEY, 
+    "OPENAI_BASE_URL":process.env.OPENAI_BASE_URL || undefined
 
 }
 
-if (!env.API_KEY) {console.error("error: No API key present! Exiting.");process.exit(1)}
+if (!env.OPENAI_API_KEY) {console.error("error: No API key present! Exiting.");process.exit(1)}
 
 server.post("/api/generate",({ set,body }) => {
     let b:any = body; // elysia bug
+
+    b = JSON.parse(b)
     b.model = b.model ? b.model : "gpt-3.5-turbo";
     b.prompt = b.prompt ? b.prompt : "You are a helpful assistant called DeblokAI.";
     return ai.generate(b.model,b.messages,b.prompt)
