@@ -13,5 +13,8 @@
     "build": "tailwindcss -i static/tw.css -o static/app.css -m -w",
     "start": "bun server/index.ts",
     "format": "prettier --write ."
+  },
+  "dependencies": {
+    "openai": "^4.28.4"
   }
 }
