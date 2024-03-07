@@ -53,3 +53,5 @@ vsep {border-right: 1px solid rgba(255,255,255,0.3); @apply inline;}
 
 body,html {width:100%; height:100%;}
 .chatbox-textarea-input {@apply px-3 py-1 bg-[rgb(7,7,17)]/80 hover:bg-[rgb(7,7,17)] focus:bg-[rgb(7,7,17)] ring-1 hover:ring-[3px] duration-200 ring-surface1/60 hover:ring-surface1/80 hover:shadow-inner active:shadow-inner focus:shadow-inner ;}
+chatbox {@apply fixed bottom-0 bg-[rgb(7,7,17)]/60 ring-2 ring-mantle  hover:bg-[rgb(7,7,17)]/80 backdrop-blur-lg duration-200 p-4 rounded-lg rounded-b-none w-[48%]}
+chat {@apply w-[56%] h-full bg-black/5 flex justify-center container mx-auto}
