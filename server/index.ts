@@ -14,6 +14,9 @@ const env = {
 
 if (!env.OPENAI_API_KEY) {console.error("error: No API key present! Exiting.");process.exit(1)}
 
+server.get("/api",({ set })=> {set.redirect = "https://img.rare1k.dev/_broken_links.gif"})
+server.get("/api/",({ set })=> {set.redirect = "https://img.rare1k.dev/_broken_links.gif"})
+
 server.post("/api/completions",async ({ set,body }) => {
     let b:any = body; // elysia bug
     try {
