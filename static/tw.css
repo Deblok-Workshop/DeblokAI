@@ -37,3 +37,13 @@
   font-display: swap;
   font-weight: 700;
 }
+.letter {@apply m-0 hover:font-semibold duration-200 hover:p-0.5}
+.letter.ai {@apply font-normal hover:p-0;}
+.h1-ai-group:hover .letter.ai {animation: 0.5s ai_letter_anim infinite alternate;}
+.h1-ai-group:hover .letter.ai:nth-of-type(2) {animation: 0.5s ai_letter_anim infinite alternate;animation-delay: 0.05s;}
+.h1-ai-group {@apply hover:px-2 px-1 duration-200 hover:bg-surface1/30 bg-surface0/20 rounded-md}
+
+@keyframes ai_letter_anim {
+  from {position:relative;top:-3px;}
+  to {position:relative;top:3px;}
+}
