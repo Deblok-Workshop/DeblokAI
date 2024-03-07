@@ -9,9 +9,12 @@ openai.apiKey = env.API_KEY;
 openai.baseURL = env.OPENAI_BASE;
 
 async function generate(model:string,messages:Object,prompt:Object) {
+ let msgs:any = [{ role: "system", content: `${prompt ? prompt : "You are a helpful assistant called DeblokAI."}` }];
+ Object.assign({1: messages},msgs)
  let c = await openai.chat.completions.create({
-    messages: [{ role: "system", content: `${prompt ? prompt : "You are a helpful assistant called DeblokAI."}` }],
+    messages: msgs,
     model: "gpt-3.5-turbo",
-  })
+  });
+  console.log(msgs)
   return c.choices[0];
 }
