@@ -53,8 +53,8 @@ vsep {border-right: 1px solid rgba(255,255,255,0.3); @apply inline;}
 
 body,html {width:100%; height:100%;}
 .chatbox-textarea-input {@apply px-3 py-1 bg-[rgb(7,7,17)]/80 hover:bg-[rgb(7,7,17)] focus:bg-[rgb(7,7,17)] ring-1 hover:ring-[3px] duration-200 ring-surface0/60 hover:ring-surface0/80 hover:shadow-inner active:shadow-inner focus:shadow-inner ;}
-chatbox {@apply bg-[rgb(7,7,17)]/60 ring-2 ring-mantle  hover:bg-[rgb(7,7,17)]/80 backdrop-blur-lg duration-200 p-4 rounded-lg rounded-b-none w-[48%]; margin-bottom:62px;}
-chat {@apply w-[56%] h-full bg-black/5 flex mx-auto overflow-y-auto;
+chatbox {@apply bg-[rgb(7,7,17)]/60 ring-2 ring-mantle  hover:bg-[rgb(7,7,17)]/80 backdrop-blur-lg duration-200 p-4 rounded-lg rounded-b-none w-[90%] md:w-[60%] sm:w-[90%] lg:w-[50%]; margin-bottom:62px;}
+chat {@apply w-[100%] md:w-[70%] sm:w-[100%] lg:w-[60%] h-full bg-black/5 flex mx-auto overflow-y-auto;
   
 }
 .force-wrap {
