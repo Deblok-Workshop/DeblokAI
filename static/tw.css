@@ -2,6 +2,8 @@
 @tailwind components;
 @tailwind utilities;
 
+* {color-scheme:dark;}
+
 @font-face {
   font-family: "Geist";
   font-style: normal;

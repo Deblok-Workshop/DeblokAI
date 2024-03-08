@@ -19,7 +19,8 @@ function summonChatBubble(role,content,mde = true) {
     ele.setAttribute("author",role);
     ele.innerHTML = `<h5>${role.charAt(0).toUpperCase() + role.slice(1)}</h5>${mde ? md.render(content) : content}`
     document.querySelector("chat-container").appendChild(ele)
-    msgContext.push({"role":role, "content":content})
+    msgContext.push({"role":role, "content":content});
+    hljs.highlightAll();
 }
 
 function delLastMsg() {
