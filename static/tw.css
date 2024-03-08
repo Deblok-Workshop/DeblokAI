@@ -53,8 +53,13 @@ vsep {border-right: 1px solid rgba(255,255,255,0.3); @apply inline;}
 
 body,html {width:100%; height:100%;}
 .chatbox-textarea-input {@apply px-3 py-1 bg-[rgb(7,7,17)]/80 hover:bg-[rgb(7,7,17)] focus:bg-[rgb(7,7,17)] ring-1 hover:ring-[3px] duration-200 ring-surface0/60 hover:ring-surface0/80 hover:shadow-inner active:shadow-inner focus:shadow-inner ;}
-chatbox {@apply fixed bottom-0 bg-[rgb(7,7,17)]/60 ring-2 ring-mantle  hover:bg-[rgb(7,7,17)]/80 backdrop-blur-lg duration-200 p-4 rounded-lg rounded-b-none w-[48%]}
-chat {@apply w-[56%] h-full bg-black/5 flex justify-center container mx-auto}
+chatbox {@apply bg-[rgb(7,7,17)]/60 ring-2 ring-mantle  hover:bg-[rgb(7,7,17)]/80 backdrop-blur-lg duration-200 p-4 rounded-lg rounded-b-none w-[48%]; margin-bottom:62px;}
+chat {@apply w-[56%] h-full bg-black/5 flex mx-auto overflow-y-auto;
+  
+}
+
+chat-bubble {@apply p-1 bg-black/30 w-fit mx-4 mb-1 ml-auto}
+
 button.send {@apply w-[10%] min-w-[88px] hover:bg-blue-950 bg-[rgb(7,7,17)]/80  ring-surface0/60  hover:ring-blue/60 hover:shadow-inner ring-1 border border-white/40 border-l-0 hover:ring-[3px] duration-300 flex mx-auto justify-center align-middle items-center rounded-r-md text-center h-[58px];
 }
 
