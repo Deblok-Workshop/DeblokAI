@@ -45,12 +45,17 @@ async function sendMessage() {
     summonChatBubble("user",content);
     if (res.ok) {
     summonChatBubble("assistant",await res.text());
-    } else {summonChatBubble("error",`Server returned an error.<br><code>HTTP ${res.status}</code>`),false;}
+    } else {
+        console.error("Server returned an error!")
+        console.error(`HTTP ${res.status}`)
+        console.error(`Response (trimmed to first 500 characters): ${res.substring(0,500)}`)
+        summonChatBubble("error",`Server returned an error.<br><code>HTTP ${res.status}\nCheck console!</code>`),false;}
     document.querySelector("button.send").disabled = false;
 } catch (e) {
     delLastMsg();
     document.querySelector("button.send").disabled = false;
-    summonChatBubble("error",`Failed to send request. <br> <code>${e}</code>`,false);
+    console.error(`Failed to send request!\n${e}`)
+    summonChatBubble("error",`Failed to send request. <br> <code>${e}\nCheck console!</code>`,false);
     return;
 }
 }
