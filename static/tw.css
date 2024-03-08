@@ -108,4 +108,4 @@ button.send {overflow-x:hidden !important;}
 code {@apply ring-2 shadow-inner bg-black/60 font-mono text-sm ring-mantle/50 text-text p-1 rounded-sm force-wrap;}
 pre code {@apply ring-2 shadow-inner bg-black/70 font-mono text-sm ring-mantle/50 text-text p-2 rounded-md block force-wrap;}
 
-.hljs {background:#000 !important;}
+.hljs {background:#000 !important; @apply overflow-x-auto;}
