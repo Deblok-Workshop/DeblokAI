@@ -5,7 +5,7 @@ AbortSignal.timeout ??= function timeout(ms) {
     return ctrl.signal
   }
 
-  const md = markdownit({
+ let md = markdownit({
     html: false, // to be on the safe side
     linkify: true,
     typographer: true
@@ -14,10 +14,10 @@ AbortSignal.timeout ??= function timeout(ms) {
 
 let msgContext = []
 
-function summonChatBubble(role,content,md = true) {
+function summonChatBubble(role,content,mde = true) {
     let ele = document.createElement("chat-bubble")
     ele.setAttribute("author",role);
-    ele.innerHTML = `<h5>${role.charAt(0).toUpperCase() + role.slice(1)}</h5>${md ? md.render(content) : content}`
+    ele.innerHTML = `<h5>${role.charAt(0).toUpperCase() + role.slice(1)}</h5>${mde ? md.render(content) : content}`
     document.querySelector("chat-container").appendChild(ele)
     msgContext.push({"role":role, "content":content})
 }
