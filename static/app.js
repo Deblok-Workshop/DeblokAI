@@ -5,14 +5,19 @@ AbortSignal.timeout ??= function timeout(ms) {
     return ctrl.signal
   }
 
+  const md = markdownit({
+    html: false, // to be on the safe side
+    linkify: true,
+    typographer: true
+  })
 
 
 let msgContext = []
 
-function summonChatBubble(role,content) {
+function summonChatBubble(role,content,md = true) {
     let ele = document.createElement("chat-bubble")
     ele.setAttribute("author",role);
-    ele.innerHTML = `<h5>${role.charAt(0).toUpperCase() + role.slice(1)}</h5>${content}`
+    ele.innerHTML = `<h5>${role.charAt(0).toUpperCase() + role.slice(1)}</h5>${md ? md.render(content) : content}`
     document.querySelector("chat-container").appendChild(ele)
     msgContext.push({"role":role, "content":content})
 }
@@ -40,12 +45,12 @@ async function sendMessage() {
     summonChatBubble("user",content);
     if (res.ok) {
     summonChatBubble("assistant",await res.text());
-    } else {summonChatBubble("error",`Server returned an error.<br><code>HTTP ${res.status}</code>`);}
+    } else {summonChatBubble("error",`Server returned an error.<br><code>HTTP ${res.status}</code>`),false;}
     document.querySelector("button.send").disabled = false;
 } catch (e) {
     delLastMsg();
     document.querySelector("button.send").disabled = false;
-    summonChatBubble("error",`Failed to send request. <br> <code>${e}</code>`);
+    summonChatBubble("error",`Failed to send request. <br> <code>${e}</code>`,false);
     return;
 }
 }
