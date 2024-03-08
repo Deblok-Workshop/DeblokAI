@@ -36,6 +36,7 @@ async function sendMessage() {
         "messages": modContx
         })})
     } catch (e) {
+        delLastMsg();
         document.querySelector("button.send").disabled = false;
         summonChatBubble("error",`Failed to send request. <br> <code>${e}</code>`);
         return;
