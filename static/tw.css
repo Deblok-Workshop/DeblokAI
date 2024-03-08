@@ -57,8 +57,14 @@ chatbox {@apply bg-[rgb(7,7,17)]/60 ring-2 ring-mantle  hover:bg-[rgb(7,7,17)]/8
 chat {@apply w-[56%] h-full bg-black/5 flex mx-auto overflow-y-auto;
   
 }
-
-chat-bubble {@apply p-1 inline-block bg-black/30 min-w-[35px] mx-4 mb-1 ml-auto rounded-2xl pr-6 pl-2 py-1 text-lg my-2 shadow-md;max-width:50%;max-height:640px; overflow:auto;}
+.force-wrap {
+  white-space: pre-wrap; /* css-3 */
+  white-space: -moz-pre-wrap; /* Mozilla, since 1999 */
+  white-space: -pre-wrap; /* Opera 4-6 */
+  white-space: -o-pre-wrap; /* Opera 7 */
+  word-wrap: break-word; /* Internet Explorer 5.5+ */
+}
+chat-bubble {@apply p-1 inline-block bg-black/30 min-w-[35px] mx-4 mb-1 ml-auto rounded-2xl pr-6 pl-2 py-1 text-lg my-2 shadow-md force-wrap;max-width:50%;max-height:640px; overflow:auto;}
 chat-bubble[author="user"] {@apply rounded-br-md text-blue bg-blue-950 pt-2}
 chat-bubble[author="assistant"] {@apply rounded-bl-md text-green bg-[#166534] text-right ml-4 mr-auto pb-2;}
 
