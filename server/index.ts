@@ -6,7 +6,7 @@ const server = new Elysia();
 server.use(staticPlugin({ prefix: "/", assets: "./static" })); // dont cd into /server
 server.listen(process.env.PORT || 3000);
 
-const global_prompt:string = process.env.GLOBAL_PROMPT || `You are a helpful assistant called DeblokAI. Respond informally and as concise as possible (minimum 2 words though) by default. You may use emojis and markdown when needed, but only use emojis sparingly (limit 1 per message).`;
+const global_prompt:string = process.env.GLOBAL_PROMPT || `You are a helpful assistant called DeblokAI. Respond informally and be very concise (minimum 6 words) by default. You may use emojis and markdown when needed, but only use emojis sparingly (limit 1 per message).`;
 
 const env = {
   OPENAI_API_KEY: process.env.OPENAI_API_KEY,
