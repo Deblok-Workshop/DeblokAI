@@ -66,12 +66,13 @@ chat {@apply w-[100%] md:w-[70%] sm:w-[100%] lg:w-[60%] h-full bg-black/5 flex m
   white-space: -o-pre-wrap; /* Opera 7 */
   word-wrap: break-word; /* Internet Explorer 5.5+ */
 }
-chat-bubble {@apply h-min p-1 inline-block bg-black/30 min-w-[80px] mx-4 mb-1 ml-auto rounded-2xl pr-6 pl-2 py-1 text-lg my-2 shadow-md force-wrap;max-width:62%;max-height:640px; overflow:auto; line-break: loose;white-space: normal;}
-chat-bubble[author="user"] {@apply rounded-br-md text-blue bg-blue-950 pt-2}
-chat-bubble[author="assistant"] {@apply rounded-bl-md text-green bg-[#166534] ml-4 mr-auto pb-2;}
+chat-bubble {@apply h-min  inline-block bg-black/30 min-w-[80px] mx-4 mb-1 ml-auto rounded-2xl  text-lg my-2 shadow-md force-wrap;max-width:62%;max-height:640px; overflow:auto; line-break: loose;white-space: normal;}
+chat-bubble[author="user"] {@apply rounded-br-md text-blue bg-blue-950}
+chat-bubble[author="assistant"] {@apply rounded-bl-md text-green bg-[#166534] ml-4 mr-auto;}
 chat-bubble[author="pending"] {opacity:0.5}
 chat-bubble[author="error"] { @apply bg-red-800; }
-chat-bubble h5 {font-size:12px; line-height:4px; margin-bottom:12px; margin-top:6px; }
+chat-bubble h5 {font-size:12px; line-height:4px; padding-bottom:12px; padding-top:6px; @apply w-full bg-black/30  pr-6 pl-2 py-2 rounded-2xl rounded-b-none px-1}
+chat-bubble p {@apply px-2 pb-2}
 chat-bubble {animation:0.77s chatBubble_anim forwards;}
 @keyframes chatBubble_anim {
  0% { position:relative; opacity:0;left:120px; transform:rotateX(65deg); overflow:hidden; }
