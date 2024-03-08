@@ -102,3 +102,6 @@ button.send {overflow-x:hidden !important;}
   from {background-position: -133% center;background-size: 100px;backdrop-filter: brightness(0.6);}
   to {background-position: 200% center;background-size: 80px;backdrop-filter: brightness(0.1);}
 }
+
+code {@apply ring-2 shadow-inner bg-black/60 font-mono text-sm ring-mantle/50 text-text p-1 rounded-sm force-wrap;}
+pre code {@apply ring-2 shadow-inner bg-black/70 font-mono text-sm ring-mantle/50 text-text p-2 rounded-md block force-wrap;}
