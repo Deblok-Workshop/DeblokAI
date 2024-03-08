@@ -35,16 +35,17 @@ async function sendMessage() {
     let res = await fetch("/api/chat",{signal: AbortSignal.timeout(8000),"method":"POST","body":JSON.stringify({
         "messages": modContx
         })})
-    } catch (e) {
-        delLastMsg();
-        document.querySelector("button.send").disabled = false;
-        summonChatBubble("error",`Failed to send request. <br> <code>${e}</code>`);
-        return;
-    }
+   
     delLastMsg();
     summonChatBubble("user",content);
     if (res.ok) {
     summonChatBubble("assistant",await res.text());
-    } else {summonChatBubble("error",`Server returned an error.<br><code>HTTP ${response.statusCode}</code>`);}
+    } else {summonChatBubble("error",`Server returned an error.<br><code>HTTP ${res.status}</code>`);}
     document.querySelector("button.send").disabled = false;
+} catch (e) {
+    delLastMsg();
+    document.querySelector("button.send").disabled = false;
+    summonChatBubble("error",`Failed to send request. <br> <code>${e}</code>`);
+    return;
+}
 }
