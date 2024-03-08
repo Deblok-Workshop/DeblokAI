@@ -40,7 +40,7 @@ server.post("/api/completions", async ({ set, body }) => {
 });
 
 server.post("/api/chat", async ({ set, body }) => {
-  console.log("got req")
+  // console.log("got req")
   let b: any = body; // elysia bug
   try {
     b = JSON.parse(b);
