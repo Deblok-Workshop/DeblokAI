@@ -53,7 +53,7 @@ server.post("/api/chat", async ({ set, body }) => {
     ? b.prompt
     : "You are a helpful assistant called DeblokAI.";
   let r: any = await ai.generate(b.model, b.messages, b.prompt);
-  return r.message.content;
+  return r[0].message.content;
 });
 
 console.log(`Listening on port ${process.env.PORT || 3000} or`);
