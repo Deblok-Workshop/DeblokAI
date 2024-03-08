@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="app.css" />
   </head>
   <body class="bg-mantle text-text font-sans w-full h-full">
-    <nav class="px-4 py-0 text-lg bg-[rgb(7,7,17)]/80 background-blur-lg z-100 relative">
+    <nav class="flex flex-row align-middle items-center px-4 py-0 text-lg bg-[rgb(7,7,17)]/80 background-blur-lg z-100 relative">
       <div class="py-4 inline-block"> 
       <h1 class="font-light text-2xl inline-block"><span class="letter">D</span><span class="letter">e</span><span class="letter">b</span><span class="letter">l</span><span class="letter">o</span><span class="letter">k</span>
           <div class="h1-ai-group inline-block">
@@ -16,15 +16,17 @@
         </h1>
       </div> 
         <vsep class="mx-2 h-[36px] relative bottom-0.5 inline-flex align-middle self-center items-center"></vsep>
-        <div class="py-4 inline-block">
-          <a href="https://discord.gg/deblok" class=" rounded-md text-blue bg-base hover:bg-surface0 duration-300 text-lg px-4 py-1 shadow hover:shadow-black/50">Discord</a>
-        </div>
+        <div class="py-2 inline-block">
+          <a class="rounded-md text-blue bg-base hover:bg-surface0 duration-300 text-lg px-4 py-1 shadow hover:shadow-black/50 !overflow-hidden inline-block discord-txt-hover" href="https://discord.gg/deblok">
+          Discord
+          </a>
+          </div>
     </nav>
     <div class="w-full h-full flex flex-col fixed bg-gradient-to-b from-transparent to-black/60 from-50%">
       <chat>
         <chatbox class="flex flex-row">
          <textarea class="border-r-0 resize-none chatbox-textarea-input rounded-md w-[90%] rounded-r-none duration-200"></textarea>
-         <button type="submit" class="send">
+         <button type="submit" class="send" onclick="let _=document.querySelector('button.send');_.classList.add('anim');setTimeout(()=>{_.classList.remove('anim');},2000)">
          
             <svg class="flex text-center mx-auto align-middle" width="32" height="32" fill="none" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M5.694 12 2.299 3.272c-.236-.607.356-1.188.942-.982l.093.04 18 9a.75.75 0 0 1 .097 1.283l-.097.058-18 9c-.583.291-1.217-.244-1.065-.847l.03-.096L5.694 12 2.299 3.272 5.694 12ZM4.402 4.54l2.61 6.71h6.627a.75.75 0 0 1 .743.648l.007.102a.75.75 0 0 1-.649.743l-.101.007H7.01l-2.609 6.71L19.322 12 4.401 4.54Z" fill="#ffffff"/></svg>
           

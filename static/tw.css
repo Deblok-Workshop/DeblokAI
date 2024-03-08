@@ -59,13 +59,23 @@ button.send {@apply w-[10%] min-w-[88px] hover:bg-blue-950 bg-[rgb(7,7,17)]/80  
 }
 
 @keyframes sendIco_clickAnim {
-  from {position:relative; margin-left:25%;opacity:1;height:32px !important;}
-  25% {position:relative; margin-left:10px;opacity:1;margin-top:0px;height:32px !important;}
-  60% {position:relative; margin-left:120px;opacity:0;transform: rotateX(75deg);height:32px !important;}
-  81% {position:relative; margin-left:-100px;opacity:0;height:32px !important;}
-  90% {position:relative; margin-left:25%; opacity:1;height:32px !important;}
-  100% {position:relative; margin-left:25%; opacity:1;transform: rotateX(0deg);height:32px !important;}
+  from {position:relative; margin-left:25%;opacity:1;width:32px !important;}
+  25% {position:relative; margin-left:10px;opacity:1;margin-top:0px;width:32px !important;}
+  60% {position:relative; margin-left:120px;opacity:0;transform: rotateZ(-30deg);width:32px !important;}
+  70% {margin-bottom:32px;}
+  81% {position:relative; margin-left:-100px;opacity:0;width:32px !important;transform: rotateZ(30deg);margin-bottom:32px;}
+  90% {position:relative; margin-left:25%; opacity:1;width:32px !important;transform: rotateZ(10deg);}
+  100% {position:relative; margin-left:25%; opacity:1;transform: rotateZ(0deg);width:32px !important;margin-bottom:0px;}
 }
 
-button.send:hover svg {animation: 1.5s sendIco_clickAnim;overflow-x:hidden !important;height:32px !important;}
+button.send.anim svg {animation: 1.5s sendIco_clickAnim;overflow-x:hidden !important;width:32px !important;}
 button.send {overflow-x:hidden !important;}
+.discord-txt-hover:hover {
+  background-image:url("data:image/svg+xml,%3Csvg width='120' height='120' fill='none' viewBox='0 0 24 24' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M12 1.999c5.524 0 10.002 4.478 10.002 10.002 0 5.523-4.478 10.001-10.002 10.001-5.524 0-10.002-4.478-10.002-10.001C1.998 6.477 6.476 1.999 12 1.999ZM14.939 16.5H9.06c.652 2.414 1.786 4.002 2.939 4.002s2.287-1.588 2.939-4.002Zm-7.43 0H4.785a8.532 8.532 0 0 0 4.094 3.411c-.522-.82-.953-1.846-1.27-3.015l-.102-.395Zm11.705 0h-2.722c-.324 1.335-.792 2.5-1.373 3.411a8.528 8.528 0 0 0 3.91-3.127l.185-.283ZM7.094 10H3.735l-.005.017a8.525 8.525 0 0 0-.233 1.984c0 1.056.193 2.067.545 3h3.173a20.847 20.847 0 0 1-.123-5Zm8.303 0H8.603a18.966 18.966 0 0 0 .135 5h6.524a18.974 18.974 0 0 0 .135-5Zm4.868 0h-3.358c.062.647.095 1.317.095 2a20.3 20.3 0 0 1-.218 3h3.173a8.482 8.482 0 0 0 .544-3c0-.689-.082-1.36-.236-2ZM8.88 4.09l-.023.008A8.531 8.531 0 0 0 4.25 8.5h3.048c.314-1.752.86-3.278 1.583-4.41ZM12 3.499l-.116.005C10.62 3.62 9.396 5.622 8.83 8.5h6.342c-.566-2.87-1.783-4.869-3.045-4.995L12 3.5Zm3.12.59.107.175c.669 1.112 1.177 2.572 1.475 4.237h3.048a8.533 8.533 0 0 0-4.339-4.29l-.291-.121Z' fill='%23585b70'/%3E%3C/svg%3E"); background-size:contain; background-position: -33% center; background-size: 80px;background-repeat: no-repeat;
+  animation:0.6s discord-txt-hover_Anim forwards;
+}
+.discord-txt-hover {background-position: 0% center;}
+@keyframes discord-txt-hover_Anim {
+  from {background-position: -133% center;background-size: 100px;backdrop-filter: brightness(0.6);}
+  to {background-position: 200% center;background-size: 80px;backdrop-filter: brightness(0.1);}
+}
