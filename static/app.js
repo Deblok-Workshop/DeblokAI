@@ -48,8 +48,9 @@ async function sendMessage() {
     } else {
         console.error("Server returned an error!")
         console.error(`HTTP ${res.status}`)
-        console.error(`Response (trimmed to first 500 characters): ${res.substring(0,500)}`)
-        summonChatBubble("error",`Server returned an error.<br><code>HTTP ${res.status}\nCheck console!</code>`),false;}
+
+        console.error(`Response (trimmed to first 500 characters): ${(await res.text()).substring(0,500)}`)
+        summonChatBubble("error",`Server returned an error.<br><code>HTTP ${res.status}\nCheck console!</code>`,false);}
     document.querySelector("button.send").disabled = false;
 } catch (e) {
     delLastMsg();
