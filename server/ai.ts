@@ -9,15 +9,22 @@ openai.baseURL = env.OPENAI_BASE_URL;
 
 async function generate(model: string, messages: Object, prompt: Object) {
   let msgs: any = [];
-  msgs.push(`${prompt ? prompt : "You are a helpful assistant called DeblokAI."}`);
-  for (let i = 0; i < Object.keys(messages).length; i++)  {
-    msgs.push(Object.keys(messages)[i])
+  //console.log(messages)
+  msgs.push({"role":"system","content":`${prompt ? prompt : "You are a helpful assistant called DeblokAI."}`});
+  const keys = Object.keys(messages);
+  for (let i = 0; i < keys.length; i++) {
+    const role = keys[i] as keyof typeof messages;
+    const content = messages[role];
+    msgs.push(content);
   }
+  //console.log("msgs")
+  //console.log(msgs);
   let c = await openai.chat.completions.create({
     messages: msgs,
     model: model || "gpt-3.5-turbo",
   });
-  console.log(msgs);
+  //console.log("got response");
+  
   return c.choices;
 }
 
