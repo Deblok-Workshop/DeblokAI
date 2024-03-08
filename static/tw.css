@@ -58,13 +58,15 @@ chat {@apply w-[56%] h-full bg-black/5 flex mx-auto overflow-y-auto;
   
 }
 
-chat-bubble {@apply p-1 bg-black/30 min-w-[20%] mx-4 mb-1 ml-auto rounded-2xl pr-6 pl-2 py-1 text-lg my-2 shadow-md;}
+chat-bubble {@apply p-1 inline-block bg-black/30 min-w-[20%] mx-4 mb-1 ml-auto rounded-2xl pr-6 pl-2 py-1 text-lg my-2 shadow-md;}
 chat-bubble[author="user"] {@apply rounded-br-md text-blue bg-blue-950}
-chat-bubble[author="assistant"] {@apply rounded-bl-md text-green bg-[#166534] text-right mr-32;}
+chat-bubble[author="assistant"] {@apply rounded-bl-md text-green bg-[#166534] text-right ml-4 mr-auto;}
 
-chat-bubble:hover {animation:0.7s chatBubble_anim}
+chat-bubble {animation:0.77s chatBubble_anim forwards;}
 @keyframes chatBubble_anim {
- from {}
+ 0% { position:relative; opacity:0;left:120px; transform:rotateX(65deg); overflow:hidden; }
+ 60% { position:relative; opacity:1; left:-10px;  transform:rotateX(20deg); overflow:hidden;}
+ 100% { position:relative; opacity:1; left:0px;  transform:rotateX(0deg); overflow:hidden;}
 }
 
 button.send {@apply w-[10%] min-w-[88px] hover:bg-blue-950 bg-[rgb(7,7,17)]/80  ring-surface0/60  hover:ring-blue/60 hover:shadow-inner ring-1 border border-white/40 border-l-0 hover:ring-[3px] duration-300 flex mx-auto justify-center align-middle items-center rounded-r-md text-center h-[58px];
