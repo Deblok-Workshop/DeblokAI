@@ -16,6 +16,8 @@
   },
   "dependencies": {
     "@catppuccin/tailwindcss": "^0.1.6",
+    "@elysiajs/static": "^0.8.1",
+    "elysia": "^0.8.17",
     "flowbite": "^2.3.0",
     "openai": "^4.28.4",
     "prettier": "^3.2.5",

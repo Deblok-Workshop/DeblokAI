@@ -30,8 +30,26 @@ function delLastMsg() {
 }
 
 async function sendMessage() {
+    
     let content = document.querySelector(".chatbox-textarea-input").value;
     document.querySelector(".chatbox-textarea-input").value = "";
+    document.querySelector("chat").scrollTop = document.querySelector("chat").scrollHeight;
+    if (content.length < 2) {
+        document.querySelector("button.send").disabled = true;
+        summonChatBubble("error","Message not sent: Message too small.");
+        setTimeout(() => {delLastMsg();document.querySelector("button.send").disabled = false;},1000)
+        
+        return;
+    }
+    if (content.length > 4096) {
+        document.querySelector("button.send").disabled = true;
+        summonChatBubble("error","Message not sent: Message too big.");
+        setTimeout(() => {delLastMsg();document.querySelector("button.send").disabled = false;},1000)
+        
+        
+        return;
+    }
+    
     document.querySelector("button.send").disabled = true;
     summonChatBubble("pending",content);
     let modContx = msgContext;
