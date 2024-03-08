@@ -64,10 +64,10 @@ chat {@apply w-[56%] h-full bg-black/5 flex mx-auto overflow-y-auto;
   white-space: -o-pre-wrap; /* Opera 7 */
   word-wrap: break-word; /* Internet Explorer 5.5+ */
 }
-chat-bubble {@apply p-1 inline-block bg-black/30 min-w-[35px] mx-4 mb-1 ml-auto rounded-2xl pr-6 pl-2 py-1 text-lg my-2 shadow-md force-wrap;max-width:60%;max-height:640px; overflow:auto;}
+chat-bubble {@apply p-1 inline-block bg-black/30 min-w-[80px] mx-4 mb-1 ml-auto rounded-2xl pr-6 pl-2 py-1 text-lg my-2 shadow-md force-wrap;max-width:60%;max-height:640px; overflow:auto;}
 chat-bubble[author="user"] {@apply rounded-br-md text-blue bg-blue-950 pt-2}
 chat-bubble[author="assistant"] {@apply rounded-bl-md text-green bg-[#166534] text-right ml-4 mr-auto pb-2;}
-
+chat-bubble h5 {font-size:12px; line-height:4px; margin-bottom:12px; margin-top:6px; }
 chat-bubble {animation:0.77s chatBubble_anim forwards;}
 @keyframes chatBubble_anim {
  0% { position:relative; opacity:0;left:120px; transform:rotateX(65deg); overflow:hidden; }

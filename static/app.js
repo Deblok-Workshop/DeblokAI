@@ -8,3 +8,10 @@ function summonChatBubble(role,content) {
     msgContext.push({"role":role, "content":content})
 }
 
+function delLastMsg() {
+    msgContext = msgContext.pop()
+    let lastMsg = document.querySelector("chat-bubble:last-child");
+    lastMsg.remove()
+}
+
+function sendMessage() {}
