@@ -64,7 +64,7 @@ chat-bubble[author="assistant"] {@apply rounded-bl-md text-green bg-[#166534] te
 
 chat-bubble:hover {animation:0.7s chatBubble_anim}
 @keyframes chatBubble_anim {
- // ...
+ from {}
 }
 
 button.send {@apply w-[10%] min-w-[88px] hover:bg-blue-950 bg-[rgb(7,7,17)]/80  ring-surface0/60  hover:ring-blue/60 hover:shadow-inner ring-1 border border-white/40 border-l-0 hover:ring-[3px] duration-300 flex mx-auto justify-center align-middle items-center rounded-r-md text-center h-[58px];
