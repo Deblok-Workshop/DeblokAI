@@ -37,7 +37,7 @@ async function sendMessage() {
     modContx.pop();
     modContx.push({"role":"user","content":content})
     try {
-    let res = await fetch("/api/chat",{signal: AbortSignal.timeout(8000),"method":"POST","body":JSON.stringify({
+    let res = await fetch("/api/chat",{signal: AbortSignal.timeout(15000),"method":"POST","body":JSON.stringify({
         "messages": modContx
         })})
    
