@@ -1,3 +1,12 @@
+// polyfill
+AbortSignal.timeout ??= function timeout(ms) {
+    const ctrl = new AbortController()
+    setTimeout(() => ctrl.abort(), ms)
+    return ctrl.signal
+  }
+
+
+
 let msgContext = []
 
 function summonChatBubble(role,content) {
@@ -22,9 +31,15 @@ async function sendMessage() {
     let modContx = msgContext;
     modContx.pop();
     modContx.push({"role":"user","content":content})
-    let res = await fetch("/api/chat",{"method":"POST","body":JSON.stringify({
+    try {
+    let res = await fetch("/api/chat",{signal: AbortSignal.timeout(8000),"method":"POST","body":JSON.stringify({
         "messages": modContx
         })})
+    } catch (e) {
+        document.querySelector("button.send").disabled = false;
+        summonChatBubble("error",`Failed to send request. <br> <code>${e}</code>`);
+        return;
+    }
     delLastMsg();
     summonChatBubble("user",content);
     if (res.ok) {

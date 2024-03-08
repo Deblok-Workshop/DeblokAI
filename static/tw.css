@@ -68,7 +68,7 @@ chat-bubble {@apply p-1 inline-block bg-black/30 min-w-[80px] mx-4 mb-1 ml-auto 
 chat-bubble[author="user"] {@apply rounded-br-md text-blue bg-blue-950 pt-2}
 chat-bubble[author="assistant"] {@apply rounded-bl-md text-green bg-[#166534] text-right ml-4 mr-auto pb-2;}
 chat-bubble[author="pending"] {opacity:0.5}
-chat-bubble[author="error"] {opacity:0.5; @apply bg-red-800 text-red; }
+chat-bubble[author="error"] { @apply bg-red-800 text-red; }
 chat-bubble h5 {font-size:12px; line-height:4px; margin-bottom:12px; margin-top:6px; }
 chat-bubble {animation:0.77s chatBubble_anim forwards;}
 @keyframes chatBubble_anim {
