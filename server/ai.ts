@@ -22,6 +22,7 @@ async function generate(model: string, messages: Object, prompt: Object) {
   let c = await openai.chat.completions.create({
     messages: msgs,
     model: model || "gpt-3.5-turbo",
+    max_tokens: 1024
   });
   //console.log("got response");
   
