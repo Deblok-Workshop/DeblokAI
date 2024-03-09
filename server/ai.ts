@@ -5,12 +5,16 @@ const env = {
   AI_MODELS: process.env.AI_MODELS || "gpt-3.5-turbo"
 };
 const openai = new OpenAI();
-openai.apiKey = env.OPENAI_API_KEY;
+openai.apiKey = env.OPENAI_API_KEY.split(",")[0];
 openai.baseURL = env.OPENAI_BASE_URL;
 function getModels() {
   return env.AI_MODELS;
 }
 async function generate(model: string, messages: Object, prompt: Object) {
+  let ApiKeys = env.OPENAI_API_KEY.split(",");
+  if (ApiKeys.length > 1) {
+    openai.apiKey = ApiKeys[Math.floor(Math.random() * (ApiKeys.length - 1))]
+  }
   const wlModels = getModels().split(',');
   if (!wlModels.includes(model)) {
     throw{"ai_err":`Model ${model} is not availiable.`};
