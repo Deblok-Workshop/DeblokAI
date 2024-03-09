@@ -138,3 +138,6 @@ fetch('/api/models')
       modelselectMenu.add(option);
     });
   });
+modelselectMenu.addEventListener('change', function() {
+    summonChatBubble("info",`Switched to \`${modelselectMenu.value}\` model. `,true)
+  });
