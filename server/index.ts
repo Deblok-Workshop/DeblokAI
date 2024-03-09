@@ -3,6 +3,10 @@ import { staticPlugin } from "@elysiajs/static";
 import ai from "./ai.ts";
 const server = new Elysia();
 
+import { rateLimit } from "elysia-rate-limit";
+import ratelimitConfig from "./ratelimit";
+server.use(rateLimit(ratelimitConfig));
+
 server.use(staticPlugin({ prefix: "/", assets: "./static" })); // dont cd into /server
 server.listen(process.env.PORT || 3000);
 
