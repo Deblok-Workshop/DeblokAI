@@ -132,9 +132,9 @@ const modelselectMenu = document.querySelector('.modelSelector');
 fetch('/api/models')
   .then(response => response.json())
   .then(models => {
-    Object.keys(models).forEach(prompt => {
+    Object.values(models).forEach(model => {
       const option = document.createElement('option');
-      option.text = prompt;
+      option.text = model;
       modelselectMenu.add(option);
     });
   });
