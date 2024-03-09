@@ -11,15 +11,24 @@ AbortSignal.timeout ??= function timeout(ms) {
     typographer: true
   })
 
+let prompts = {"default":"You are a helpful assistant called DeblokAI. Respond informally and be very concise (minimum 6 words, maximum 250 words) unless you are told otherwise. You may use emojis and markdown when needed, but only use emojis sparingly (limit 1 emoji per message).",
+"arbys_employee":"Pretend to be a Arby's employee who doesn't care about anything during your eternal shift at Arby's and is just trying to get through your shift. Gladly be very rude and disrespectful, as its a part of the experience ordering at Arby's. Be VERY imformal, and respond in lowercase letters with little punctuation, as it enhances the experience. Be sure to state that you're an arbys employee when someone says hi!","linux_terminal":"I want you to act as a linux terminal. I will type commands and you will reply with what the terminal should show. I want you to only reply with the terminal output inside one unique code block, and nothing else. do not write explanations. do not type commands unless I instruct you to do so. When I need to tell you something in English, I will do so by putting text inside curly brackets {like this}. ","javascript_console":"INTERNAL_ACTUAL_JAVASCRIPT_CONSOLE"
+}
+let currentPrompt = "default";
 
 let msgContext = []
 
 function summonChatBubble(role,content,mde = true) {
+    if (role == "user" || role == "assistant" || role == "system") { // do not add special types of messages
+        msgContext.push({"role":role, "content":content});
+        } else if (role == "pending") {
+            msgContext.push({"role":"user", "content":content}); // handle pending msgs as user msgs
+        }
     let ele = document.createElement("chat-bubble")
     ele.setAttribute("author",role);
     ele.innerHTML = `<h5>${role.charAt(0).toUpperCase() + role.slice(1)}</h5>${mde ? md.render(content) : content}`
     document.querySelector("chat-container").appendChild(ele)
-    msgContext.push({"role":role, "content":content});
+    
     hljs.highlightAll();
 }
 
@@ -51,13 +60,24 @@ async function sendMessage() {
     }
     
     document.querySelector("button.send").disabled = true;
+    if (currentPrompt == "javascript_console") {
+        let r;
+        summonChatBubble("user",content)
+        try {
+        r = eval(content);
+        if (content.includes("console.log")) {
+            summonChatBubble("info","Check console for output of `console.log`",true)
+        }
+        setTimeout(() => {summonChatBubble("assistant",`\`\`\`\n${r}\n\`\`\``,true)},300)
+        
+        } catch (r) {summonChatBubble("assistant",r,false)}
+        document.querySelector("button.send").disabled = false;
+        return;
+    }
     summonChatBubble("pending",content);
-    let modContx = msgContext;
-    modContx.pop();
-    modContx.push({"role":"user","content":content})
     try {
     let res = await fetch("/api/chat",{signal: AbortSignal.timeout(25000),"method":"POST","body":JSON.stringify({
-        "messages": modContx
+        "messages": msgContext, "prompt": prompts[currentPrompt]
         })})
    
     delLastMsg();
@@ -78,4 +98,15 @@ async function sendMessage() {
     summonChatBubble("error",`Failed to send request. <br> <code>${e}\nCheck console!</code>`,false);
     return;
 }
+}
+
+function switchPrompt(prompt) {
+    if (prompt in prompts) {
+        currentPrompt = prompt;
+        summonChatBubble("info",`Switched to \`${prompt}\` prompt. `,true)
+    } else {
+        summonChatBubble("error","Invalid prompt. Switching to `default`.",true)
+        currentPrompt = "default";
+        
+    }
 }

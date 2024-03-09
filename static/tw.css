@@ -54,7 +54,7 @@
 vsep {border-right: 1px solid rgba(255,255,255,0.3); @apply inline;}
 
 body,html {width:100%; height:100%;}
-.chatbox-textarea-input {@apply px-3 py-1 bg-[rgb(7,7,17)]/80 hover:bg-[rgb(7,7,17)] focus:bg-[rgb(7,7,17)] ring-1 hover:ring-[3px] duration-200 ring-surface0/60 hover:ring-surface0/80 hover:shadow-inner active:shadow-inner focus:shadow-inner ;}
+.chatbox-textarea-input {@apply  rounded-md w-[90%] rounded-r-none duration-200 px-3 py-1 bg-[rgb(7,7,17)]/80 hover:bg-[rgb(7,7,17)] focus:bg-[rgb(7,7,17)] ring-1 hover:ring-[3px] ring-surface0/60 hover:ring-surface0/80 hover:shadow-inner active:shadow-inner focus:shadow-inner ;}
 chatbox {@apply bg-[rgb(7,7,17)]/60 ring-2 ring-mantle  hover:bg-[rgb(7,7,17)]/80 backdrop-blur-lg duration-200 p-4 rounded-lg rounded-b-none w-[90%] md:w-[60%] sm:w-[90%] lg:w-[50%]; margin-bottom:62px;}
 chat {@apply w-[100%] md:w-[70%] sm:w-[100%] lg:w-[60%] h-full bg-black/5 flex mx-auto overflow-y-auto;
   
@@ -66,7 +66,7 @@ chat {@apply w-[100%] md:w-[70%] sm:w-[100%] lg:w-[60%] h-full bg-black/5 flex m
   white-space: -o-pre-wrap; /* Opera 7 */
   word-wrap: break-word; /* Internet Explorer 5.5+ */
 }
-chat-bubble {@apply h-min  inline-block bg-black/30 min-w-[80px] mx-4 mb-1 ml-auto rounded-2xl  text-lg my-2 shadow-md force-wrap;max-width:62%;max-height:640px; overflow:auto; line-break: loose;white-space: normal;}
+chat-bubble {@apply h-min  inline-block bg-black/30 min-w-[80px] mx-4 mb-1 ml-auto rounded-2xl my-2 shadow-md force-wrap;max-width:62%;max-height:640px; overflow:auto; line-break: loose;white-space: normal;}
 chat-bubble[author="user"] {@apply rounded-br-md text-blue bg-blue-950}
 chat-bubble[author="assistant"] {@apply rounded-bl-md text-green bg-[#166534] ml-4 mr-auto;}
 chat-bubble[author="pending"] {opacity:0.5}
