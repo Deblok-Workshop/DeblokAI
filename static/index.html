@@ -10,7 +10,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
   </head>
   <body class="bg-mantle text-text font-sans w-full h-full">
-    <nav class="flex flex-row align-middle items-center px-4 py-0 text-lg bg-[rgb(7,7,17)]/80 background-blur-lg z-100 relative">
+    <nav class="flex w-full flex-row align-middle items-center px-4 py-0 text-lg bg-[rgb(7,7,17)]/80 background-blur-lg z-100 fixed top-0">
       <div class="py-4 inline-block"> 
       <h1 class="font-light text-2xl inline-block"><span class="letter">D</span><span class="letter">e</span><span class="letter">b</span><span class="letter">l</span><span class="letter">o</span><span class="letter">k</span>
           <div class="h1-ai-group inline-block">
@@ -19,7 +19,7 @@
         </h1>
       </div> 
         <vsep class="mx-2 h-[36px] relative bottom-0.5 inline-flex align-middle self-center items-center"></vsep>
-        <div class="py-2 inline-block">
+        <div class="py-2 inline-block sm:block">
           <a class="rounded-md text-blue bg-base hover:bg-surface0 duration-300 text-lg px-4 py-1 shadow hover:shadow-black/50 !overflow-hidden inline-block url-hover" href="https://discord.gg/deblok">
           Discord
           </a>
@@ -27,7 +27,8 @@
             GitHub
             </a>
           </div>
-          <div class="mx-8"> Prompt:
+          
+          <div class="mx-1 sm:block sm:mx-2 md:mx-4 lg:mx-8"> Prompt:
             <select class="promptSelector px-4 py-1 rounded-sm bg-mantle hover:bg-crust focus:bg-crust text-sm"></select>
             Model:
             <select class="modelSelector px-4 py-1 rounded-sm bg-mantle hover:bg-crust focus:bg-crust text-sm"></select>
