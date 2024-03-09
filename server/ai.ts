@@ -2,12 +2,19 @@ import OpenAI from "openai";
 const env = {
   OPENAI_API_KEY: process.env.OPENAI_API_KEY || "",
   OPENAI_BASE_URL: process.env.OPENAI_BASE_URL || "https://api.openai.com/v1/",
+  AI_MODELS: process.env.AI_MODELS || "gpt-3.5-turbo"
 };
 const openai = new OpenAI();
 openai.apiKey = env.OPENAI_API_KEY;
 openai.baseURL = env.OPENAI_BASE_URL;
-
+function getModels() {
+  return env.AI_MODELS;
+}
 async function generate(model: string, messages: Object, prompt: Object) {
+  const wlModels = getModels().split(',');
+  if (!wlModels.includes(model)) {
+    throw new Error(`Model ${model} is not availiable.`);
+  }
   let msgs: any = [];
   //console.log(messages)
   msgs.push({"role":"system","content":`${prompt ? prompt : "You are a helpful assistant called DeblokAI."}`});
@@ -31,4 +38,5 @@ async function generate(model: string, messages: Object, prompt: Object) {
 
 export default {
   generate: generate,
+  getModels: getModels
 };

@@ -62,6 +62,9 @@ server.post("/api/chat", async ({ set, body }) => {
   let r: any = await ai.generate(b.model, b.messages, b.prompt);
   return r[0].message.content;
 });
+server.post("/api/models", async ({ set, body }) => {
+  return ai.getModels().split(",");
+});
 
 console.log(`Listening on port ${process.env.PORT || 3000} or`);
 console.log(` │ 0.0.0.0:${process.env.PORT || 3000}`);
