@@ -80,7 +80,7 @@ async function sendMessage() {
     summonChatBubble("pending",content);
     try {
     let res = await fetch("/api/chat",{signal: AbortSignal.timeout(25000),"method":"POST","body":JSON.stringify({
-        "messages": msgContext, "prompt": prompts[currentPrompt]
+        "messages": msgContext, "prompt": prompts[currentPrompt], "model":document.querySelector('.modelSelector').value
         })})
    
     delLastMsg();

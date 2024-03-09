@@ -1,4 +1,4 @@
-import OpenAI from "openai";
+import OpenAI, { NotFoundError } from "openai";
 const env = {
   OPENAI_API_KEY: process.env.OPENAI_API_KEY || "",
   OPENAI_BASE_URL: process.env.OPENAI_BASE_URL || "https://api.openai.com/v1/",
@@ -13,7 +13,7 @@ function getModels() {
 async function generate(model: string, messages: Object, prompt: Object) {
   const wlModels = getModels().split(',');
   if (!wlModels.includes(model)) {
-    throw new Error(`Model ${model} is not availiable.`);
+    throw{"ai_err":`Model ${model} is not availiable.`};
   }
   let msgs: any = [];
   //console.log(messages)

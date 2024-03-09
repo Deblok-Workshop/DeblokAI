@@ -59,8 +59,15 @@ server.post("/api/chat", async ({ set, body }) => {
   b.prompt = b.prompt
     ? b.prompt
     : global_prompt;
+  try {
   let r: any = await ai.generate(b.model, b.messages, b.prompt);
   return r[0].message.content;
+  } catch (e:any) {
+    if (e.ai_err) {
+      set.status = 400; return "Model is not availiable.";
+    }
+    else {set.status = 500; return e;}
+  }
 });
 server.get("/api/models", async ({ set, body }) => {
   return ai.getModels().split(",");
