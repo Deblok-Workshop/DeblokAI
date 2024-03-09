@@ -80,7 +80,7 @@ chat-bubble {animation:0.77s chatBubble_anim forwards;}
  100% { position:relative; opacity:1; left:0px;  transform:rotateX(0deg); overflow:hidden;}
 }
 
-button.send {@apply w-[10%] min-w-[88px] hover:bg-blue-950 bg-[rgb(7,7,17)]/80  ring-surface0/60  hover:ring-blue/60 hover:shadow-inner ring-1 border border-white/40 border-l-0 hover:ring-[3px] duration-300 flex mx-auto justify-center align-middle items-center rounded-r-md text-center h-[58px];
+button.send {@apply w-[10%] min-w-[88px] hover:bg-blue-950 bg-[rgb(7,7,17)]/80  ring-surface0/60  hover:ring-blue/60 hover:shadow-inner ring-1 border border-white/40 border-l-0 hover:ring-[3px] duration-300 flex justify-center align-middle items-center rounded-r-md text-center h-[58px];
 }
 button.send:disabled {@apply bg-gray-950 hover:bg-gray-900 opacity-50}
 
